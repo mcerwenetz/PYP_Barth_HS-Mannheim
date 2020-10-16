@@ -3,22 +3,15 @@
 import sys
 
 def calc(a, op, b):
+    zahl1 = float(a)
+    zahl2 = float(b)
     if op == "+":
-        return a+b
+        return zahl1+zahl2
     elif op == "-":
-        return a-b
+        return zahl1-zahl2
     elif op == "*":
-        return a*b
+        return zahl1*zahl2
     elif  op == "/":
-        return a /b
+        return zahl1 /zahl2
     else:
         return "Error"
-
-
-args = sys.argv[1:]
-# print(args)
-# args= args[1:]
-zahl1=float(args[0])
-op = args[1]
-zahl2=float(args[2])
-print(calc(zahl1, op, zahl2))
