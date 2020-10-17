@@ -15,3 +15,7 @@ def calc(a, op, b):
         return zahl1 /zahl2
     else:
         return "Error"
+
+
+
+print(calc(sys.argv[1], sys.argv[2], sys.argv[3]))
