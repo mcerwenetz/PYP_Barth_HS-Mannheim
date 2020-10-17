@@ -1,0 +1,34 @@
+1.
+
+In [25]: lis = [1,2]
+
+In [26]: lis
+Out[26]: [1, 2]
+------------------
+In [33]: lis.append(lis)
+
+In [34]: lis
+Out[34]: [1, 2, [...]]
+
+Die Liste enthält eine Referenz auf sich selbst. wenn mann dann mit:
+
+lis[2] reingeht bekommt man wieder die gleiche ausgabe.
+
+Same für lis[2][2]
+
+Die Liste wurde mit sich selbst verknüpft. Man bewegt sich praktisch im Kreis.
+Jede Refernz der Liste lis enthält die Referenz der Liste.
+
+
+2.
+
+
+In [38]: lis=[1,2]
+
+In [39]: lis = lis + lis
+
+In [40]: lis
+Out[40]: [1, 2, 1, 2]
+
+
+Hier wird die Liste nur auf sich selbst concatiniert
