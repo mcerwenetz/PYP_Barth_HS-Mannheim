@@ -1,0 +1,65 @@
+Links
+
+1: 0.4 Ergebnis wird in float gepackt. Nicht wie bei c
+2: 0 Division wie in C Ergebnis wird in int gepackt
+3: 81 weil ** Potenz heißt
+4: 42 weil int() den String in n int umwandelt
+5: 42.0 weil float den String in n float umwandelt
+6: "Hallo" normaler String
+7: Hallo Welt String welt wird mit + concatiniert
+8: Keine Ausgabe da nur Zuweisung. i = 1, j =2
+9: Siehe 8
+10: (1,2). Es wird zum Touple
+11:  Zuweisung, keine Ausgabe i =2, j =3
+12: (2,3) zwei ints i und j wieder als tupel
+13:  0,5 True = 1 1/2 = 0,5 
+14:  range(0,10) macht n range Objekt sowas wie n iterator
+15: [1, 101, 201, 301, 401, 501, 601, 701, 801, 901] macht ne range von 1 bis ausschließlich 1000 in 100er Schritten
+
+16: Keine Ausgabe. Zuweisung S = "Ham"
+17:  Error, kann String nur mit nem String concatinieren
+18:  'ham and eggs'
+19: 'HamHamHamHamHam' einfach 5 mal S hintereinander
+20:  '' weil zwischen 0tem und 0tem Char im String S kein Char mehr liegt
+21: 'H' weil's immer der erste Char im String sein wird
+22:  'x' weil's im toupel nur einen char gibt und die 0te Stelle vom Tupelelement x ist
+23:  'g', zweites g von "eggs"
+24:  'x' weil's erstes element vom tupel ist
+25: (1, 2, 7, 5): 3 wird auf 4 addiert und dann wird das rechte touple an das linke appended
+26:  Geht nicht weil 3 kein Toupel ist. + zählt dann nur für toupel
+27:  (1, 2, 3) weil 3, ein Toupel ist
+
+
+Rechts
+
+1: Zuweisung, keine Ausgabe
+2: [1, 2, 3, 4, 5, 6] Zahlen wurden einfach ergänzt
+3: [] weil zwischen nulltem und nulltem Element kein Element liegt
+4: 5 weil es von hinten das -2 Element ist
+5: [5, 6] weil es vom -2 bis -1 Element (einschließlich) durchläuft
+6: [3, 4] Erst wird die Liste [1,2,3,4,5,6] erzeugt und dann ab index 2 (3) bis ausschließlich index 4 (5) die Liste ausgegeben.
+
+7: (3, 4) das sind die Zahlen an Index 2 und 3 in der Liste lis
+8: 6
+9: ['h', 'a', 'l', 'l', 'o'] neue Liste m wird erstellt bestehend aus den einzelnen chars des Strings "hallo" und danach wird m ausgegeben
+10: ['o', 'l', 'l', 'a', 'h'] liste m wird einmal reversiert
+11: ['a', 'h', 'l', 'l', 'o'] Alphabetisch sortiert
+12: 4, index von o halt
+13:  2 a wird auf 1 gemappt und b auf 2. Dann wird die b zurodnung ausgegeben
+14: Keine Ausgabe, Zuweisung
+15: Keine Ausgabe, Zuweisung. w wird einfach neu in die map aufgenommen
+16: 1 weil 1 + 0 = 1 
+17: Keine Ausgabe. Das Toupel (1,2,3) wird auf 4 gemapped und an die map d angefügt
+18: {'x': 1, 'y': 2, 'z': 3, 'w': 0, (1, 2, 3): 4}
+19: dict_keys(['x', 'y', 'z', 'w', (1, 2, 3)]) Die Schlüssel, auf die gemapped wird.
+20: ['x', 'y', 'z', 'w', (1, 2, 3)] Listenobjekt der Schlüssel
+21:[1, 2, 3, 0, 4] Liste mit den Values von den Keys
+22: True Boolscher Ausdruck. d war die map und wir fragen praktisch ist das Tupel 1,2,3 in d? Und das ist True
+
+23: True weil die 4 zwischen 0 und 9 liegt
+24: True weil in dem Wort idiot dio drin steht.
+25: 'Ende" weil 0, [] als leere Liste, () als leeres Toupel, {} als leere Map, None als NoneElement alle false sind außer "Ende" das ist nämlich nicht "" deswegen ist  es True bzw "Ende".
+26: Keine Ausgabe. Mehrfachzuweisung x = 1 und y = 2
+27: Mehrfachzuweisung, swap(x,y)
+
+
