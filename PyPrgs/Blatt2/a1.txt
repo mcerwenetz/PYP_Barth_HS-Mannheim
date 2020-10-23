@@ -1,0 +1,7 @@
+Commands:
+liste = list(range(101))
+erstenzehn = liste[0:10]
+letztezehn = liste[-10:]
+jederzehnte=liste[::10]
+mitte = liste[len(liste)//2]
+jededritteaussererstevierundletztefuenf = liste[5:-5:3]
