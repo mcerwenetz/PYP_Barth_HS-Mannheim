@@ -1,4 +1,3 @@
-Commands:
 liste = list(range(101))
 erstenzehn = liste[0:10]
 letztezehn = liste[-10:]
