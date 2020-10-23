@@ -1,0 +1,2 @@
+name="Marius" 
+nameX = name[0:1] + "X" + name[2:]
