@@ -66,7 +66,7 @@ def main(argv):
     pfad = os.path.join(workingdirectory, pfad)
     ausgabedatei=argv[3]
 
-    img =Image.open("a.pgm")
+    img =Image.open(pfad)
     img.show()
     cols, rows = img.size
     if manipulation == "heller":
