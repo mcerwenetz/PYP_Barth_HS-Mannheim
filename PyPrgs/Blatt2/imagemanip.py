@@ -3,6 +3,8 @@ from PIL import Image
 import os
 
 def gamma(cols,rows,img, zahl):
+    if not 0.0 <= zahl <= 10:
+        raise ValueError("wrong value for gamma. 0 <= gamma <= 10")
     for y in range(rows):
         for x in range(cols):
             v = img.getpixel((x, y))
@@ -12,6 +14,8 @@ def gamma(cols,rows,img, zahl):
     return img
 
 def heller(cols, rows, img, zahl):
+    if not -100 <= zahl <= 100:
+        raise ValueError("wrong brightness value -100 <= brightness <= 100")
     for y in range(rows):
         for x in range(cols):
             v = img.getpixel((x, y))
@@ -21,6 +25,8 @@ def heller(cols, rows, img, zahl):
     return img
 
 def spreizen(cols,rows,img,zahl):
+    if not 0 <= zahl <= 100:
+        raise ValueError("wrong p value 0 <= p <= 100")
     min=255
     max=0
     for y in range(rows):
@@ -48,6 +54,8 @@ def spreizen(cols,rows,img,zahl):
     return img
 
 def binarisieren(cols, rows, img, zahl):
+    if not 0 <= zahl <= 255:
+        raise ValueError("wrong threshold value 0 <= p <= 255")        
     for y in range(rows):
         for x in range(cols):
             v = img.getpixel((x, y))
@@ -59,6 +67,12 @@ def binarisieren(cols, rows, img, zahl):
 
 
 def main(argv):
+    if len(argv) != 4:
+        print("wrong number of arguments")
+        return
+    elif (argv[0] not in ["heller", "spreizen", "gamma", "binarisieren"]):
+        print("function " + argv[0]+" not found")
+        return
     manipulation=argv[0]
     zahl = float(argv[1])
     pfad = argv[2]
@@ -69,14 +83,20 @@ def main(argv):
     img =Image.open(pfad)
     img.show()
     cols, rows = img.size
-    if manipulation == "heller":
-        img = heller(cols,rows,img,zahl)
-    elif manipulation == "gamma":
-        img = gamma(cols,rows,img,zahl)
-    elif manipulation == "spreizen":
-        img = spreizen(cols,rows,img,zahl)
-    elif manipulation == "binarisieren":
-        img = binarisieren(cols,rows,img,zahl)    
+
+    try:
+        if manipulation == "heller":
+            img = heller(cols,rows,img,zahl)
+        elif manipulation == "gamma":
+            img = gamma(cols,rows,img,zahl)
+        elif manipulation == "spreizen":
+            img = spreizen(cols,rows,img,zahl)
+        elif manipulation == "binarisieren":
+            img = binarisieren(cols,rows,img,zahl)    
+    except Exception as e:
+        print(e)
+        return
+
     img.save(ausgabedatei)
     img.show()
 
