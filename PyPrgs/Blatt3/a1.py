@@ -1,5 +1,4 @@
 lis = [1,2,3]
-ele=[]
 while lis:
     print(lis.pop(0))
 
