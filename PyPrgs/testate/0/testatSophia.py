@@ -6,7 +6,7 @@ import sys
 
 def main(args): # args sind die Kommandozeilen-Argumente
    
-    dicti = {'abcd': "Hallo", 12345: 17, 12349: 42, 12347: 1}
+    dicti = { 12345: (17,19), 123: (10,)}
     dictineu = {}
     # pro schlüssel in dicti
     for key in dicti:
@@ -26,7 +26,7 @@ def main(args): # args sind die Kommandozeilen-Argumente
                 # mache ein Tupel aus der Liste die sorted zurückgegeben hat
                 # und assigne dieses neue sortierte Tupel aus altem und neuen Wert der value an der Stelle des neuen keys
                 # der zwar schon ein Value hatte, aber dieses value wurde einfach ergänzt
-                dictineu[keyneu] = tuple(sorted((*dictineu[keyneu], dicti[key])))
+                dictineu[keyneu] = tuple(sorted((*dictineu[keyneu], *dicti[key])))
                 # falls der neue eintrag kein tupel ist erstelle ein Tupel aus neuem und altem wert, sortiere es, 
                 # mach aus der liste ein tupel und füge es hinzu
             else:   
