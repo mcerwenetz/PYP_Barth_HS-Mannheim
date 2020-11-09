@@ -1,7 +1,8 @@
 # Pfui Deivel
-def func(a,b,c):
-    print(a,b,c)
+def func(a,b):
+    print(a,b)
 
-diction={"a":3,"b":1, "c":2}
+diction={"a":1,"b":2}
+
 # tup = (1,2)
 func(**diction)
