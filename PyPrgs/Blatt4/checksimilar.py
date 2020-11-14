@@ -22,8 +22,8 @@ def main():
         else:
             dic[lineAsSoundex] = dic[lineAsSoundex] + [line]
 
-    print(dic)
-    # values = list(dic.values())
+    values = list(dic.values())
+    print(max([len(liste) for liste in values]))
     
     file.close()
 
