@@ -1,4 +1,4 @@
-dictionary = {x:1 for x in "bfpv"}
+dictionary = {x:'1' for x in "bfpv"}
 dictionary.update({x:'2' for x in "cgjkqsxz"})
 dictionary.update({x:'3' for x in "dt"})
 dictionary.update({x:'4' for x in "l"})
