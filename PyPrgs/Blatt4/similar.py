@@ -1,4 +1,5 @@
 from a5 import soundex
+import string
 
 def main(word : str, filename : str) -> None:
     ergebnisliste = []
@@ -7,9 +8,15 @@ def main(word : str, filename : str) -> None:
 
     file = open(filename)
     for x in file:
-        sFile = soundex(x)
+        x = x.rstrip("\n")
+        fileWordAsList = [char for char in x]
+        sAscii = [char for char in fileWordAsList if char in string.ascii_letters]
+        sAsciistr = ''
+        for c in sAscii:
+            sAsciistr+=c
+        sFile = soundex(sAsciistr)
         if sWord == sFile:
-            ergebnisliste.append(sFile)
+            ergebnisliste.append(x)
     
     file.close()
 
@@ -17,4 +24,4 @@ def main(word : str, filename : str) -> None:
 
 
 if __name__ == "__main__":
-    main("hallo", "a.txt")
+    main("Hallo", "wordsonlyascii.txt")
