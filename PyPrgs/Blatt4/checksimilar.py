@@ -4,8 +4,8 @@ from a5 import soundex
 import string
 
 def main():
-    file = open("a.txt")
-    filelines = file.readlines();
+    file = open("wordsonlyascii.txt")
+    filelines = file.readlines()
     dic = {}
 
     for line in filelines:
@@ -15,7 +15,7 @@ def main():
         sAsciistr = ''
         for c in sAscii:
             sAsciistr+=c
-        lineAsSoundex = soundex(line)
+        lineAsSoundex = soundex(sAsciistr)
         
         if not lineAsSoundex in dic:
             dic[lineAsSoundex] = [line]
@@ -23,7 +23,14 @@ def main():
             dic[lineAsSoundex] = dic[lineAsSoundex] + [line]
 
     values = list(dic.values())
-    print(max([len(liste) for liste in values]))
+    biggestGroup = max([len(liste) for liste in values])
+    allWords = len(filelines)
+    allNotInBiggestGroup = allWords - biggestGroup
+    print("größte gruppe hat %3d wörter " % biggestGroup)
+    print("Alle wörter %d" % len(filelines))
+    print("Alle Wörter die nicht zur größten gruppe gehören %d" % allNotInBiggestGroup)
+
+
     
     file.close()
 
