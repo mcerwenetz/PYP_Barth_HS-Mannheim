@@ -5,6 +5,7 @@ for i in range(0,26):
     if i < 13:
         translationTable[ascii_lowercase[i]] = ascii_lowercase[i+13]
     else:
+        # janz wichtig! modulo damit er wieder von vorne anfängt
         translationTable[ascii_lowercase[i]] = ascii_lowercase[(i+13)%len(ascii_lowercase)]
 
 
