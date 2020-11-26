@@ -25,7 +25,9 @@ def words(filename):
     pass
 
 def lines(filename):
-    pass
+    count = 0
+    with open(filename) as file:
+        return len(file.readlines())
 
 def wc(filename):
     pass
@@ -40,4 +42,4 @@ def set_lang(sprache):
         _sprache = sprache
 
 if __name__ == "__main__":
-    print(chars("a.txt"))
+    print(lines("a.txt"))
