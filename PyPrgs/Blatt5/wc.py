@@ -5,7 +5,15 @@ _sprache = DEUTSCH
 
 
 def chars(filename):
-    pass
+    count=0
+    with open(filename) as file:
+        lines = file.readlines()
+        for line in lines:
+            line = line.strip("\n")
+            for c in line:
+                count+=1
+    return count
+
 
 def words(filename):
     pass
@@ -24,3 +32,6 @@ def set_lang(sprache):
         raise Exception("Sprache nicht unterstützt")
     else:
         _sprache = sprache
+
+if __name__ == "__main__":
+    print(chars("a.txt"))
