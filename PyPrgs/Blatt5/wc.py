@@ -3,14 +3,20 @@ ENGLISCH = "englisch"
 
 _sprache = DEUTSCH
 
+def removeBackslashesNewLine(lines):
+    newlines = []
+    for line in lines:
+            line = line.strip("\n")
+            newlines.append(line)
+    return newlines
 
 def chars(filename):
     count=0
     with open(filename) as file:
         lines = file.readlines()
+        lines = removeBackslashesNewLine(lines)
         for line in lines:
-            line = line.strip("\n")
-            for c in line:
+            for char in line:
                 count+=1
     return count
 
