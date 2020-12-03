@@ -10,6 +10,13 @@ def main():
     # liste aussortieren, wenn's vorkommt in die liste für das wort
     # liste ausgeben  
 
+    # listOfFiles = []
+    # for(dirpath, dirnames, filenames) in  os.walk(r"fortunes"):
+    #     listOfFiles += [os.path.join(dirpath, file) for file in filenames]
+    listOfAllFortunes=[]
+    with open("beispielfortune.txt") as datei:
+        lines = datei.readlines()
+
 
 
 if __name__ == "__main__":
