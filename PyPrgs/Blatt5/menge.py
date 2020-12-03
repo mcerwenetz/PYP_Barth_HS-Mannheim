@@ -1,9 +1,11 @@
-class Set:
+class Set():
+
     def __init__(self, liste=None):
+        self.runningIndex=0
         self.liste=[]
         if liste is not None:
             for ele in liste:
-                self.add(liste)
+                self.add(ele)
     
     def add(self, elem):
         if elem not in self.liste:
@@ -17,6 +19,41 @@ class Set:
         neuesSet = Set(self.liste)
         neuesSet.unionupdate(seq)
         return neuesSet
+
+    def __len__(self):
+        return len(self.liste)
+    
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.runningIndex+=1
+        if self.runningIndex < len(self.liste):
+            return self.liste[self.runningIndex]
+        else:
+            raise StopIteration
+
+    def __contains__(self, ele):
+        if ele in self.liste:
+            return True
+        else:
+            return False
+
+    def __ne__(self, other):
+        if len(self.liste) != len(other.liste):
+            return True
+        else:
+            for elem in self.liste:
+                if elem not in other.liste:
+                    return False
+        return False
+
+    def __eq__(self, other):
+        return not (self != other)
+
+    def remove(self, elem):
+        self.liste.remove(elem)
+
 
     
 if __name__ == "__main__":
