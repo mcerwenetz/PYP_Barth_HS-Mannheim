@@ -2,12 +2,8 @@ import sys, os, string, random
 
 def main(arguments):
     # Todo: Alle Dateien öffnen wo kein dat oder u8 hintendran ist
+    # wenn mehrere wörter gefunden werden sollen list of args entgegennehmen
     # Alle lines aller dateien einlesen trennung bei \n%\n
-    # teil 2:
-    # auch all das machen aber checken ob -m "wörter" in den args stehen
-    # liste erstellen für alle zitate in der fetten liste die das wort enthalten
-    # liste aussortieren, wenn's vorkommt in die liste für das wort
-    # liste ausgeben  
 
     # listOfFiles = []
     # for(dirpath, dirnames, filenames) in  os.walk(r"fortunes"):
