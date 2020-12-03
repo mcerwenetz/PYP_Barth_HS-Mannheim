@@ -11,7 +11,7 @@ class Set():
         if elem not in self.liste:
             self.liste.append(elem)
 
-    def unionupdate(self, seq):
+    def union_update(self, seq):
         for ele in seq:
             self.add(ele)
 
@@ -52,7 +52,8 @@ class Set():
         return not (self != other)
 
     def remove(self, elem):
-        self.liste.remove(elem)
+        if elem in self.liste:
+            self.liste.remove(elem)
 
 
     
