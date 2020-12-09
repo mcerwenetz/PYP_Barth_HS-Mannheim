@@ -39,7 +39,7 @@ class TestSet(unittest.TestCase):
     #     self.assertEqual(self.mys, self.myt)
     #     self.mys.remove(3)
     #     self.assertNotEqual(self.mys, self.myt)
-    #     self.assertNotEqual(self.myt, self.mys)
+        # self.assertNotEqual(self.myt, self.mys)
 
     # def test_remove1(self):
     #     "Einzelne Elemente loeschen"
@@ -94,10 +94,10 @@ class TestSet(unittest.TestCase):
     #     for ele in self.myt:
     #         self.assertTrue(ele in self.mys)
 
-    # def test_clear(self):
-    #     "Alle Elemente entfernen"
-    #     self.myt.clear()
-    #     self.assertEqual(self.myt.size(), 0)
+    def test_clear(self):
+        "Alle Elemente entfernen"
+        self.myt.clear()
+        self.assertEqual(self.myt.size(), 0)
 
 
 if __name__ == '__main__':
