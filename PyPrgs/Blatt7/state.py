@@ -1,16 +1,4 @@
 import threading, random
-from abc import ABC, abstractmethod
-
-class IntState(ABC):
-
-    @abstractmethod 
-    def inc(self,val):
-        pass
-
-    @abstractmethod 
-    def sub(self,val):
-        pass
-
 
 class IntStateUnsafe:
     def __init__(self):
@@ -36,9 +24,8 @@ class IntStateSafe:
         self._i=0
         self.lock = threading.Lock()
 
-
-    # def inc(self, val):
-        # self.variable+=val
+    def inc(self, val):
+        self.variable+=val
 
     def sub(self, val):
         self.variable-=val
@@ -54,14 +41,21 @@ class IntStateSafe:
     variable = property(_getI, _setI)
 
 class ChangerThread(threading.Thread):
-    def __init__(self, state):
+    def __init__(self, state : IntStateSafe):
         super().__init__()
         self.state=state
-        self.random = random()
+        self.r = random()
 
     def run(self):
-        # for i in range(1,100001):
-        pass
+        for i in range(1,100001):
+            self.state.inc(self.r.randint(0,100))
 
 if __name__ == "__main__":
-    intS= IntStateSafe()
+    unsafe = IntStateUnsafe()
+    threads = [ChangerThread() for i in range(1,18)]
+    for t in threads:
+        t.start
+
+    for t in threads:
+        t.join()
+
