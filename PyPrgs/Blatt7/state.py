@@ -46,24 +46,50 @@ class ChangerThread(threading.Thread):
         self.state=state
 
     def run(self):
-        for i in range(1,10):
+        limit = 100000
+        for i in range(1,limit):
             if random.randint(0,1) == 0:
                 self.state.inc(random.randint(0,100))
             else:
                 self.state.sub(random.randint(0,100))
 
-
-if __name__ == "__main__":
-    # unsafe
-    start = time.process_time_ns()
-    unsafe = IntStateUnsafe()
-    threads = [ChangerThread(unsafe) for i in range(1,18)]
+def test(state, kindOfTime:str):
+    if kindOfTime == "p":
+        start = time.process_time_ns()
+    elif kindOfTime == "r":
+        start = time.time()
+    else:
+        raise Exception("Wrong Format")
+        
+    threads = [ChangerThread(state) for i in range(1,18)]
     for t in threads:
         t.start()
 
     for t in threads:
         t.join()
-    tookUnsafe = (time.process_time_ns() - start)/1000000
-    print("unsafe is %d" % unsafe.variable)
+
+    took =0
+
+    if kindOfTime == "p":
+        took = (time.process_time_ns() - start)/1000000
+
+    elif kindOfTime == "r":
+        took = (time.time() - start)/1000000
+    else:
+        raise Exception("Wrong Format")
+
+    return took
+
+
+if __name__ == "__main__":
+    state = IntStateUnsafe()
+    print("unsafe")
+    tookUnsafe = test(state,"p")
     print("computing took %.4f ms" % tookUnsafe)
-    
+    state = IntStateSafe()
+    print("safe")
+    tookSafe = test(state,"p")
+    print("computing took %.4f ms" % tookSafe)
+    print("safe was %f times slower than unsafe" % (tookSafe/tookUnsafe))
+
+   
