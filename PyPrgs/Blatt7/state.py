@@ -1,4 +1,4 @@
-import threading, random
+import threading, random, time
 
 class IntStateUnsafe:
     def __init__(self):
@@ -44,18 +44,26 @@ class ChangerThread(threading.Thread):
     def __init__(self, state : IntStateSafe):
         super().__init__()
         self.state=state
-        self.r = random()
 
     def run(self):
-        for i in range(1,100001):
-            self.state.inc(self.r.randint(0,100))
+        for i in range(1,10):
+            if random.randint(0,1) == 0:
+                self.state.inc(random.randint(0,100))
+            else:
+                self.state.sub(random.randint(0,100))
+
 
 if __name__ == "__main__":
+    # unsafe
+    start = time.process_time_ns()
     unsafe = IntStateUnsafe()
-    threads = [ChangerThread() for i in range(1,18)]
+    threads = [ChangerThread(unsafe) for i in range(1,18)]
     for t in threads:
-        t.start
+        t.start()
 
     for t in threads:
         t.join()
-
+    tookUnsafe = (time.process_time_ns() - start)/1000000
+    print("unsafe is %d" % unsafe.variable)
+    print("computing took %.4f ms" % tookUnsafe)
+    
